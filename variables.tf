@@ -36,3 +36,12 @@ variable "placeholder" {
   default     = "placekitten.com"
   description = "Image-as-a-service URL. Some other fun ones to try are fillmurray.com, placecage.com, placebeard.it, loremflickr.com, baconmockup.com, placeimg.com, placebear.com, placeskull.com, stevensegallery.com, placedog.net"
 }
+
+variable "ec2_count" {
+  type = number
+  default = 1
+  validation {
+    condition = var.ec2_count > 0
+    error_message = "ec2_count must be greater than 1"
+  }
+}
